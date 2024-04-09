@@ -11,3 +11,4 @@
 ---
 ## Homework List
 [2nd Week Homework](./Week_02/README.md)<br>
+[1st Month Homework](./Month_01_Base_Code/README.md)<br>
