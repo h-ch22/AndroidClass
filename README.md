@@ -1,6 +1,6 @@
 <img src="./README/ic_android.png" width="150px">
 
-# Android Rect
+# Android Class
 > Ha's list of Android class assignments and answers
 ---
 ## Project Condition
