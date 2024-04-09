@@ -1,6 +1,6 @@
 <img src="./README/ic_android.png" width="150px">
 
-# Week 2 Homework
+# 2nd Week Homework
 
 <div style="display: flex; flex-orientation: column;">
     <img src="./README/main.png" width="200px">
