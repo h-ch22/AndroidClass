@@ -5,14 +5,14 @@ plugins {
 }
 
 android {
-    namespace = "com.cj.android_class.week_03"
+    namespace = "com.cj.android_class.week_04"
     compileSdk = 34
 
     dataBinding { enable = true }
 
     defaultConfig {
-        applicationId = "com.cj.android_class.week_03"
-        minSdk = 29
+        applicationId = "com.cj.android_class.week_04"
+        minSdk = 33
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -39,7 +39,7 @@ android {
 }
 
 dependencies {
-
+    implementation(libs.material.v130alpha02)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)

@@ -2,10 +2,9 @@
 
 # 3rd Week Homework
 
-<div style="display: flex; flex-orientation: column;">
-    <img src="./README/img_main_portrait.png" width="200px">
-    <img src="./README/img_main_landscape.png" width="650px" height="300px" style="margin-left: 10px;">
-</div>
+<img src="./README/img_main_portrait.png" width="200px">
+<img src="./README/img_main_landscape.png" style="margin-left: 10px;">
+
 
 ## Shorts
 > Create your Shorts Application using Android Studio.
@@ -23,6 +22,8 @@
 - '좋아요' 버튼을 클릭하면 <b>좋아요 수가 '1' 증가</b>합니다. 단, <b>이미 한번 증가한 경우 '1' 감소</b>시킵니다.<br>
 - '좋아요' 버튼의 <b>텍스트는 좋아요 수</b>로 표시합니다.<br>
 - 기기를 회전시키면 <b>가로모드 UI</b>를 제공합니다.<br>
+- '좋아요' 수는 <b>다른 이미지로 전환된 후 다시 돌아오더라도 유지</b>되어야 합니다.<br>
+<i>c.f. 좋아요 수가 '1'인 이미지 A에서 이미지 B로 전환된 후 다시 이미지 A로 돌아오더라도 좋아요 수는 '1'이여야합니다.</i><br>
 
 ### Source Code
 - 변수 이름은 <b>해당 변수의 역할을 잘 나타내도록 작명</b>할 것.<br>
