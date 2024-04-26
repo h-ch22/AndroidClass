@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <import type="java.util.List"/>
+
+        <variable
+            name="view"
+            type="com.cj.android_class.week_03.MainActivity" />
+
+        <variable
+            name="likeList"
+            type="List&lt;Integer>"/>
+
+        <variable
+            name="index"
+            type="Integer"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        android:weightSum="1"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/img_contents"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/img_first"
+            android:onClick="@{(v) -> view.onClick(v)}"
+            android:onLongClick="@{_ -> view.changeContents()}"
+            android:clickable="true"/>
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="#00FFFFFF">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/TXT_TITLE"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="24sp"/>
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_alignParentEnd="true"
+            android:gravity="bottom">
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/Widget.Material3.Button"
+                android:id="@+id/btn_like"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#00FFFFFF"
+                android:drawableTop="@drawable/baseline_thumb_up_24"
+                android:drawableTint="@color/white"
+                android:text="@{String.valueOf(likeList[index])}"
+                android:textSize="12sp"
+                android:onClick="@{(v) -> view.onClick(v)}"/>
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/Widget.Material3.Button"
+                android:id="@+id/btn_hate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#00FFFFFF"
+                android:drawableTop="@drawable/baseline_thumb_down_24"
+                android:drawableTint="@color/white"
+                android:text="@string/TXT_HATE"
+                android:textSize="12sp"
+                android:onClick="@{(v) -> view.onClick(v)}"/>
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/Widget.Material3.Button"
+                android:id="@+id/btn_comments"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#00FFFFFF"
+                android:drawableTop="@drawable/baseline_chat_24"
+                android:drawableTint="@color/white"
+                android:text="@string/TXT_COMMENTS"
+                android:textSize="12sp"/>
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/Widget.Material3.Button"
+                android:id="@+id/btn_share"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#00FFFFFF"
+                android:drawableTop="@drawable/baseline_share_24"
+                android:drawableTint="@color/white"
+                android:text="@string/TXT_SHARE"
+                android:textSize="12sp"/>
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/Widget.Material3.Button"
+                android:id="@+id/btn_remix"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#00FFFFFF"
+                android:drawableTop="@drawable/baseline_refresh_24"
+                android:drawableTint="@color/white"
+                android:text="@string/TXT_REMIX"
+                android:textSize="12sp"/>
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</layout>

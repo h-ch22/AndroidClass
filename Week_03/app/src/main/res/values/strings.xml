@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Week_03</string>
+    <string name="TXT_TITLE">Shorts</string>
+    <string name="TXT_HATE">싫어요</string>
+    <string name="TXT_COMMENTS">댓글</string>
+    <string name="TXT_SHARE">공유</string>
+    <string name="TXT_REMIX">리믹스</string>
+</resources>
