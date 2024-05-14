@@ -1,18 +1,15 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
-    id("kotlin-kapt")
 }
 
 android {
-    namespace = "com.cj.android_class.week_04"
+    namespace = "com.cj.week_04"
     compileSdk = 34
 
-    dataBinding { enable = true }
-
     defaultConfig {
-        applicationId = "com.cj.android_class.week_04"
-        minSdk = 33
+        applicationId = "com.cj.week_04"
+        minSdk = 29
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -36,13 +33,21 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    buildFeatures{
+        dataBinding {
+            enable = true
+        }
+    }
 }
 
 dependencies {
-    implementation(libs.material.v130alpha02)
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
+    implementation(libs.androidx.activity)
+    implementation(libs.androidx.constraintlayout)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

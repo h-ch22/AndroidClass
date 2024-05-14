@@ -1,4 +1,4 @@
-<img src="../README/ic_android.png" width="150px">
+<img src="./README/ic_android.png" width="150px">
 
 # 3rd Week Homework
 
