@@ -5,7 +5,7 @@
 ---
 ## Project Condition
 > 1. Language: <b>Kotlin</b>
-> 2. Minimum SDK: <b>Android 13.0 (Q)</b>
+> 2. Minimum SDK: <b>Android 13.0</b>
 > 3. Build Configuration Language: <b>Kotlin DSL</b>
 > 4. Android Studio Version: <b>Latest (Stable)</b>
 ---
