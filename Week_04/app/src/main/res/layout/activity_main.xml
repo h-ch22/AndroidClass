@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="view"
+            type="com.cj.week_04.ui.MainActivity" />
+
+        <import type="com.cj.week_04.models.UserTypeModel"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:orientation="vertical">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:title="@string/TXT_SIGNUP"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.Material3.TextInputLayout.FilledBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/TXT_EMAIL"
+            android:layout_marginTop="20dp"
+            app:startIconDrawable="@drawable/baseline_alternate_email_24">
+
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/Widget.Material3.TextInputEditText.FilledBox"
+                android:id="@+id/field_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@={view.email}"
+                android:inputType="textEmailAddress"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.Material3.TextInputLayout.FilledBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/TXT_PASSWORD"
+            android:layout_marginTop="20dp"
+            app:startIconDrawable="@drawable/baseline_password_24">
+
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/Widget.Material3.TextInputEditText.FilledBox"
+                android:id="@+id/field_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@={view.password}"
+                android:inputType="textPassword"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.Material3.TextInputLayout.FilledBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/TXT_CHECK_PASSWORD"
+            android:layout_marginTop="20dp"
+            app:startIconDrawable="@drawable/baseline_password_24">
+
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/Widget.Material3.TextInputEditText.FilledBox"
+                android:id="@+id/field_checkPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@={view.checkPassword}"
+                android:inputType="textPassword"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.Material3.TextInputLayout.FilledBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/TXT_NAME"
+            android:layout_marginTop="20dp"
+            app:startIconDrawable="@drawable/baseline_person_24">
+
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/Widget.Material3.TextInputEditText.FilledBox"
+                android:id="@+id/field_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@={view.name}" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.Material3.TextInputLayout.FilledBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/TXT_PHONE"
+            android:layout_marginTop="20dp"
+            app:startIconDrawable="@drawable/baseline_phone_24">
+
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/Widget.Material3.TextInputEditText.FilledBox"
+                android:id="@+id/field_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@={view.phone}"
+                android:inputType="phone"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/TXT_BIRTHDAY"
+            android:textSize="12sp"
+            android:textColor="#FF8e8e93"
+            android:textStyle="bold"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:weightSum="1">
+
+            <TextView
+                android:id="@+id/txt_selectedBirthDay"
+                android:layout_width="0dp"
+                android:layout_weight="0.8"
+                android:layout_height="wrap_content"
+                android:text="@={view.selectedBirthday}"
+                android:textSize="15sp"/>
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:id="@+id/btn_datePicker"
+                android:layout_width="0dp"
+                android:layout_weight="0.2"
+                android:layout_height="wrap_content"
+                android:onClick="@{(v) -> view.onClick(v)}"
+                android:text="@string/TXT_SELECT"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/TXT_SELECT_USER_TYPE"
+            android:textSize="12sp"
+            android:textColor="#FF8e8e93"
+            android:textStyle="bold"/>
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="0.9"
+            android:orientation="horizontal">
+
+            <RadioButton
+                style="@style/Widget.Material3.CompoundButton.RadioButton"
+                android:id="@+id/btn_student"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:checked="@{view.selectedUserType == UserTypeModel.STUDENT}"
+                android:onClick="@{(v) -> view.onClick(v)}"
+                android:text="@string/TXT_USERTYPE_STUDENT"/>
+
+            <RadioButton
+                style="@style/Widget.Material3.CompoundButton.RadioButton"
+                android:id="@+id/btn_professor"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:checked="@{view.selectedUserType == UserTypeModel.PROFESSOR}"
+                android:onClick="@{(v) -> view.onClick(v)}"
+                android:text="@string/TXT_USERTYPE_PROFESSOR"/>
+
+            <RadioButton
+                style="@style/Widget.Material3.CompoundButton.RadioButton"
+                android:id="@+id/btn_employee"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:checked="@{view.selectedUserType == UserTypeModel.EMPLOYEE}"
+                android:onClick="@{(v) -> view.onClick(v)}"
+                android:text="@string/TXT_USERTYPE_EMPLOYEE"/>
+
+        </RadioGroup>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1"
+            android:orientation="horizontal">
+
+            <CheckBox
+                style="@style/Widget.Material3.CompoundButton.CheckBox"
+                android:id="@+id/checkBox_EULA"
+                android:layout_width="0dp"
+                android:layout_weight="0.8"
+                android:layout_height="wrap_content"
+                android:text="@string/TXT_ACCEPT_EULA"
+                android:checked="@={view.isAcceptEULA()}"/>
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="0dp"
+                android:layout_weight="0.2"
+                android:layout_height="wrap_content"
+                android:text="@string/TXT_READ"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1"
+            android:orientation="horizontal">
+
+            <CheckBox
+                style="@style/Widget.Material3.CompoundButton.CheckBox"
+                android:id="@+id/checkBox_PrivacyPolicy"
+                android:layout_width="0dp"
+                android:layout_weight="0.8"
+                android:layout_height="wrap_content"
+                android:text="@string/TXT_ACCEPT_PRIVACY_POLICY"
+                android:checked="@={view.isAcceptPrivacyLicense()}"/>
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="0dp"
+                android:layout_weight="0.2"
+                android:layout_height="wrap_content"
+                android:text="@string/TXT_READ"/>
+
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.Material3.Button"
+            android:layout_gravity="end"
+            android:id="@+id/btn_signUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:onClick="@{(v) -> view.onClick(v)}"
+            android:text="@string/TXT_SIGNUP"/>
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/progressView"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_gravity="end"
+            android:visibility="gone"
+            android:indeterminate="true"/>
+
+    </LinearLayout>
+
+</layout>
