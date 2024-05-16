@@ -6,14 +6,9 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.cj.android_class.month_01.databinding.LayoutMainBinding
-import java.text.DecimalFormat
 import kotlin.concurrent.thread
-import kotlin.system.measureNanoTime
 import kotlin.time.Duration
-import kotlin.time.DurationUnit
 import kotlin.time.measureTime
-import kotlin.time.measureTimedValue
-import kotlin.time.toDuration
 
 class MainActivity: AppCompatActivity() {
     private lateinit var view: LayoutMainBinding
@@ -26,6 +21,53 @@ class MainActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         view = DataBindingUtil.setContentView(this, R.layout.layout_main)
         view.view = this
+    }
+
+    private fun solA(): ULong{
+        var result: ULong = 0u
+
+        return if(range == null){
+            0u
+        } else if(range!! <= 1){
+            return range!!.toULong()
+        } else{
+            var iterA: ULong = 0u
+            var iterB: ULong = 1u
+
+            for(i in 2 .. range!!){
+                result = iterA + iterB
+                iterA = iterB
+                iterB = result
+            }
+
+            result
+        }
+
+    }
+
+    private fun solB(range: Int): ULong{
+        return if(range <= 1){
+            range.toULong()
+        } else{
+            solB(range - 2) + solB(range - 1)
+        }
+    }
+
+    @OptIn(ExperimentalUnsignedTypes::class)
+    private fun solC(): ULong{
+        return if(range == null || range!! < 2){
+            0u
+        } else {
+            val cache = ULongArray(94)
+
+            cache[1] = 1u
+
+            for(i in 2 .. 93){
+                cache[i] = cache[i-1] + cache[i-2]
+            }
+
+            cache[range!!]
+        }
     }
 
     fun onClick(v: View){
@@ -64,7 +106,7 @@ class MainActivity: AppCompatActivity() {
 
                         view.txtResult.text = result!!.toString()
                         view.txtElapsedTime.text =
-                            "elapsed Time: ${ elapsedTime.inWholeSeconds }s (${selectedType})"
+                            "elapsed Time: ${ elapsedTime.inWholeNanoseconds }ms (${selectedType})"
 
                         view.txtResult.visibility = View.VISIBLE
                         view.txtElapsedTime.visibility = View.VISIBLE
